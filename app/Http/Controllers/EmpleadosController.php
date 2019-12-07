@@ -23,7 +23,7 @@ class EmpleadosController extends Controller
                 $data->save();
                 return response()->json([
                     'type' => 'success',
-                    'msg' => Empleados::crear($request)
+                    'msg' => 'Creación exitosa.'
                 ], 200);
             }
         } catch(\Exception $e){
