@@ -78,4 +78,24 @@ class EmpleadosController extends Controller
               ]);
         }
     }
+
+    public function empleado(Request $request){
+
+        try{
+
+            return response()->json([
+                'type' => 'success',
+                'msg' => 'Listado exitosa.',
+                'data' => Empleados::find($request->id)
+            ], 200);
+            
+        } catch(\Exception $e){
+            return response()->json([
+                'response' => 'error',
+                'error' => $e->getMessage() . ' Archivo: ' . $e->getFile() . ' Codigo '. $e->getCode() . ' Linea: ' . $e->getLine(),
+                'msg' => 'Error al guardar el usuario',
+                'code' => 400
+              ]);
+        }
+    }
 }
