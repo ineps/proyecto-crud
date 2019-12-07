@@ -35,4 +35,47 @@ class EmpleadosController extends Controller
               ]);
         }
     }
+
+    public function eliminar(Request $request){
+
+        try{
+
+            if($request->isMethod('post')){
+                $flight = Empleados::find($request->id);
+                $data->delete();
+
+                return response()->json([
+                    'type' => 'success',
+                    'msg' => 'Eliminación exitosa.'
+                ], 200);
+            }
+        } catch(\Exception $e){
+            return response()->json([
+                'response' => 'error',
+                'error' => $e->getMessage() . ' Archivo: ' . $e->getFile() . ' Codigo '. $e->getCode() . ' Linea: ' . $e->getLine(),
+                'msg' => 'Error al guardar el usuario',
+                'code' => 400
+              ]);
+        }
+    }
+
+    public function listar(){
+
+        try{
+
+            return response()->json([
+                'type' => 'success',
+                'msg' => 'Listado exitosa.',
+                'data' => Empleados::all()
+            ], 200);
+            
+        } catch(\Exception $e){
+            return response()->json([
+                'response' => 'error',
+                'error' => $e->getMessage() . ' Archivo: ' . $e->getFile() . ' Codigo '. $e->getCode() . ' Linea: ' . $e->getLine(),
+                'msg' => 'Error al guardar el usuario',
+                'code' => 400
+              ]);
+        }
+    }
 }

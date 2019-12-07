@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('crear', '\App\Http\Controllers\EmpleadosController@crear');
+Route::post('eliminar', '\App\Http\Controllers\EmpleadosController@eliminar');
+Route::get('lista', '\App\Http\Controllers\EmpleadosController@listar');
