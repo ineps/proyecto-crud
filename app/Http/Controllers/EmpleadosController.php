@@ -86,7 +86,7 @@ class EmpleadosController extends Controller
             return response()->json([
                 'type' => 'success',
                 'msg' => 'Listado exitosa.',
-                'data' => Empleados::where('id', $request->id)->get();
+                'data' => Empleados::where('id', $request->id)->get()
             ], 200);
             
         } catch(\Exception $e){
